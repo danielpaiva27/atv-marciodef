@@ -1,15 +1,16 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function LengthConverter() {
   const [value, setValue] = useState("");
+  const [conversionType, setConversionType] = useState("cmToM");
   const [result, setResult] = useState("");
 
-  const handleConvert = (conversionType: string) => {
+  useEffect(() => {
     const num = parseFloat(value);
     if (isNaN(num)) {
-      setResult("Valor inválido");
+      setResult("");
       return;
     }
 
@@ -27,35 +28,38 @@ export default function LengthConverter() {
         setResult(`${(num * 1000).toFixed(2)} metros`);
         break;
       default:
-        setResult("Conversão inválida");
+        setResult("");
     }
-  };
+  }, [value, conversionType]);
 
   return (
-    <div className="flex flex-col items-center gap-4 p-8">
-      <h1 className="text-2xl font-bold">Conversor de Comprimento</h1>
-      <input
-        type="text"
-        value={value}
-        onChange={(e) => setValue(e.target.value)}
-        placeholder="Digite o valor"
-        className="border rounded px-2 py-1"
-      />
-      <div className="flex gap-4 flex-wrap">
-        <button onClick={() => handleConvert("cmToM")} className="bg-blue-500 text-white px-4 py-2 rounded">
-          cm → m
-        </button>
-        <button onClick={() => handleConvert("mToKm")} className="bg-green-500 text-white px-4 py-2 rounded">
-          m → km
-        </button>
-        <button onClick={() => handleConvert("mToCm")} className="bg-yellow-500 text-white px-4 py-2 rounded">
-          m → cm
-        </button>
-        <button onClick={() => handleConvert("kmToM")} className="bg-red-500 text-white px-4 py-2 rounded">
-          km → m
-        </button>
+    <div className="converter-container">
+      <div className="converter-card">
+        <h1>Conversor de Comprimento</h1>
+        <p className="highlight">Escolha o tipo de conversão e insira o valor.</p>
+        <input
+          type="text"
+          value={value}
+          onChange={(e) => setValue(e.target.value)}
+          placeholder="Digite o valor"
+          className="converter-input"
+        />
+        <select
+          value={conversionType}
+          onChange={(e) => setConversionType(e.target.value)}
+          className="converter-input"
+        >
+          <option value="cmToM">cm → m</option>
+          <option value="mToKm">m → km</option>
+          <option value="mToCm">m → cm</option>
+          <option value="kmToM">km → m</option>
+        </select>
+        {result && (
+          <p className="converter-result">
+            Resultado: <span>{result}</span>
+          </p>
+        )}
       </div>
-      {result && <p className="text-lg font-medium">Resultado: {result}</p>}
     </div>
   );
 }

@@ -1,48 +1,52 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function TemperatureConverter() {
   const [value, setValue] = useState("");
+  const [conversionType, setConversionType] = useState("fToC");
   const [result, setResult] = useState("");
 
-  const handleConvertToCelsius = () => {
-    const fahrenheit = parseFloat(value);
-    if (!isNaN(fahrenheit)) {
-      setResult(`${((fahrenheit - 32) * (5 / 9)).toFixed(2)} °C`);
-    } else {
-      setResult("Valor inválido");
+  useEffect(() => {
+    const num = parseFloat(value);
+    if (isNaN(num)) {
+      setResult("");
+      return;
     }
-  };
 
-  const handleConvertToFahrenheit = () => {
-    const celsius = parseFloat(value);
-    if (!isNaN(celsius)) {
-      setResult(`${(celsius * (9 / 5) + 32).toFixed(2)} °F`);
-    } else {
-      setResult("Valor inválido");
+    if (conversionType === "fToC") {
+      setResult(`${((num - 32) * (5 / 9)).toFixed(2)} °C`);
+    } else if (conversionType === "cToF") {
+      setResult(`${(num * (9 / 5) + 32).toFixed(2)} °F`);
     }
-  };
+  }, [value, conversionType]);
 
   return (
-    <div className="flex flex-col items-center gap-4 p-8">
-      <h1 className="text-2xl font-bold">Conversor de Temperatura</h1>
-      <input
-        type="text"
-        value={value}
-        onChange={(e) => setValue(e.target.value)}
-        placeholder="Digite o valor"
-        className="border rounded px-2 py-1"
-      />
-      <div className="flex gap-4">
-        <button onClick={handleConvertToCelsius} className="bg-blue-500 text-white px-4 py-2 rounded">
-          °F → °C
-        </button>
-        <button onClick={handleConvertToFahrenheit} className="bg-green-500 text-white px-4 py-2 rounded">
-          °C → °F
-        </button>
+    <div className="converter-container">
+      <div className="converter-card">
+        <h1>Conversor de Temperatura</h1>
+        <p className="highlight">Escolha o tipo de conversão e insira o valor.</p>
+        <input
+          type="text"
+          value={value}
+          onChange={(e) => setValue(e.target.value)}
+          placeholder="Digite o valor"
+          className="converter-input"
+        />
+        <select
+          value={conversionType}
+          onChange={(e) => setConversionType(e.target.value)}
+          className="converter-input"
+        >
+          <option value="fToC">°F → °C</option>
+          <option value="cToF">°C → °F</option>
+        </select>
+        {result && (
+          <p className="converter-result">
+            Resultado: <span>{result}</span>
+          </p>
+        )}
       </div>
-      {result && <p className="text-lg font-medium">Resultado: {result}</p>}
     </div>
   );
 }

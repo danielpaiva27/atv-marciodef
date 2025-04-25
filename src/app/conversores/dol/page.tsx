@@ -1,67 +1,50 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function RealToDollarConverter() {
-  const [value, setValue] = useState("");
-  const [conversionRate, setConversionRate] = useState(5.0);
+  const [value, setValue] = useState(""); 
+  const [conversionType, setConversionType] = useState("realToDollar"); 
   const [result, setResult] = useState("");
+  const conversionRate = 5.8; 
 
-  const handleConvertToDollar = () => {
-    const real = parseFloat(value);
-    if (!isNaN(real)) {
-      setResult(`$ ${(real / conversionRate).toFixed(2)}`);
-    } else {
-      setResult("Valor inválido");
+  useEffect(() => {
+    const num = parseFloat(value);
+    if (isNaN(num)) {
+      setResult("");
+      return;
     }
-  };
 
-  const handleConvertToReal = () => {
-    const dollar = parseFloat(value);
-    if (!isNaN(dollar)) {
-      setResult(`R$ ${(dollar * conversionRate).toFixed(2)}`);
-    } else {
-      setResult("Valor inválido");
+    if (conversionType === "realToDollar") {
+      setResult(`$ ${(num / conversionRate).toFixed(2)}`);
+    } else if (conversionType === "dollarToReal") {
+      setResult(`R$ ${(num * conversionRate).toFixed(2)}`);
     }
-  };
+  }, [value, conversionType]);
 
   return (
-    <div className="min-h-screen bg-gray-100 flex flex-col items-center justify-center p-8">
-      <h1 className="text-3xl font-bold text-gray-800 mb-6">
-        Conversor de Reais para Dólares
-      </h1>
-      <div className="flex flex-col gap-4 w-full max-w-md">
+    <div className="converter-container">
+      <div className="converter-card">
+        <h1>Conversor de Reais e Dólares</h1>
+        <p className="highlight">Escolha o tipo de conversão e insira o valor.</p>
         <input
           type="text"
           value={value}
           onChange={(e) => setValue(e.target.value)}
           placeholder="Digite o valor"
-          className="border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="converter-input"
         />
-        <input
-          type="number"
-          value={conversionRate}
-          onChange={(e) => setConversionRate(parseFloat(e.target.value))}
-          placeholder="Taxa de conversão"
-          className="border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-        />
-        <div className="flex gap-4">
-          <button
-            onClick={handleConvertToDollar}
-            className="bg-blue-500 text-white py-2 px-4 rounded-lg shadow-md hover:bg-blue-600 transition"
-          >
-            Converter para Dólares
-          </button>
-          <button
-            onClick={handleConvertToReal}
-            className="bg-green-500 text-white py-2 px-4 rounded-lg shadow-md hover:bg-green-600 transition"
-          >
-            Converter para Reais
-          </button>
-        </div>
+        <select
+          value={conversionType}
+          onChange={(e) => setConversionType(e.target.value)}
+          className="converter-input"
+        >
+          <option value="realToDollar">Reais → Dólares</option>
+          <option value="dollarToReal">Dólares → Reais</option>
+        </select>
         {result && (
-          <p className="text-lg font-medium text-gray-700 mt-4">
-            Resultado: <span className="font-bold">{result}</span>
+          <p className="converter-result">
+            Resultado: <span>{result}</span>
           </p>
         )}
       </div>

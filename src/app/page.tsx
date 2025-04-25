@@ -1,6 +1,14 @@
-import { redirect } from "next/navigation";
+"use client";
 
-export default function Home() {
-  // Redireciona automaticamente para a página principal
-  redirect("/main");
+import { useEffect } from "react";
+import { useRouter } from "next/navigation";
+
+export default function Main() {
+  const router = useRouter();
+
+  useEffect(() => {
+    router.push("/conversores/main");
+  }, [router]);
+
+  return null;
 }

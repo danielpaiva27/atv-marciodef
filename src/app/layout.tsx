@@ -1,19 +1,20 @@
 import "./globals.css";
-import type { Metadata } from "next";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 
-export const metadata: Metadata = {
-  title: "Trabalho de Conversores",
-  description: "Aplicação de conversores para trabalho de faculdade",
+export const metadata = {
+  title: "Trabalho de Atividades",
+  description: "Projeto com diversas atividades para aprendizado",
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="pt-br">
-      <body>{children}</body>
+      <body className="layout-container">
+        <Header />
+        <main className="layout-content">{children}</main>
+        <Footer />
+      </body>
     </html>
   );
 }
