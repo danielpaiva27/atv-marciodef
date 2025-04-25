@@ -10,8 +10,8 @@ body {
   color: #e0e0e0;
   min-height: 100vh;
   display: flex;
-  flex-direction: column; /* Organiza o layout em uma coluna */
-  justify-content: space-between; /* Garante que o Header e Footer fiquem nas extremidades */
+  flex-direction: column; 
+  justify-content: space-between; 
   margin: 0;
 }
 
@@ -20,9 +20,9 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  min-height: 80vh; /* O container ocupará 80% da altura da tela */
-  width: 90%; /* O container ocupará 90% da largura da tela */
-  max-width: 1200px; /* Define um limite máximo para a largura */
+  min-height: 80vh; 
+  width: 90%; 
+  max-width: 1200px; 
   margin: auto;
   padding: 40px;
   border: 2px solid #ff4d4d;
@@ -214,7 +214,7 @@ a {
   display: flex;
   justify-content: center;
   margin-bottom: 20px;
-  margin-right: 0px; /* Move a foto ligeiramente para a esquerda */
+  margin-right: 0px;
 }
 
 .profile-photo {
@@ -327,7 +327,6 @@ a {
 .footer-links a:hover {
   color: #e63946;
 }
-/* Estilização do layout principal */
 .layout-container {
   display: flex;
   flex-direction: column;
@@ -338,10 +337,9 @@ a {
 }
 
 .layout-content {
-  flex: 1; /* Faz o conteúdo ocupar o espaço restante entre o Header e o Footer */
+  flex: 1; 
   padding: 20px;
 }
-/* Header */
 .header-container {
   background-color: #1a1a1a;
   border-bottom: 2px solid #ff4d4d;
@@ -359,15 +357,14 @@ a {
   margin: 0;
 }
 
-/* Footer */
-/* Footer */
+
 .footer-container {
   background-color: #1a1a1a;
   border-top: 2px solid #ff4d4d;
   padding: 20px;
   text-align: center;
   box-shadow: 0 -4px 10px rgba(255, 77, 77, 0.5);
-  position: relative; /* Remove o fixed */
+  position: relative;
   bottom: 0;
   width: 100%;
 }
@@ -421,7 +418,7 @@ a {
 
 .header-nav {
   display: flex;
-  gap: 30px; /* Aumenta o espaçamento entre os links */
+  gap: 30px; 
   padding-left: 20.5rem; 
 }
 
@@ -430,14 +427,13 @@ a {
   font-size: 1rem;
   font-weight: bold;
   text-decoration: none;
-  padding: 10px 15px; /* Adiciona espaçamento interno aos links */
+  padding: 10px 15px;
   border-radius: 5px;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .header-nav a:hover {
-  background-color: #ff4d4d; /* Adiciona um fundo vermelho ao passar o mouse */
-  color: #ffffff;
+  background-color: #ff4d4d; 
 }
 
 .header-nav a:active {
@@ -474,13 +470,13 @@ a {
   color: #e63946;
 }
 
-/* Ícones de redes sociais */
+
 .footer-links a::before {
-  content: "🔗"; /* Substitua por ícones reais, como FontAwesome ou SVG */
+  content: "🔗"; 
   margin-right: 5px;
 }
 
-/* Responsividade para o Footer */
+
 @media (max-width: 768px) {
   .footer-links {
     flex-direction: column;
