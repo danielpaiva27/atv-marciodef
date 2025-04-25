@@ -8,10 +8,10 @@ export default function Header() {
       <div className="header-content">
 
         <nav className="header-nav">
-          <Link href="/main">Início</Link>
-          <Link href="/sobre">Sobre Mim</Link>
-          <Link href="/main">Conversores</Link>
-          <Link href="/atividade2">Atividade 2</Link>
+          <Link href="../atividades">Início</Link>
+          <Link href="../sobre">Sobre Mim</Link>
+          <Link href="../conversores/main">Conversores</Link>
+          <Link href="/atividade2">Em breve</Link>
         </nav>
       </div>
     </header>

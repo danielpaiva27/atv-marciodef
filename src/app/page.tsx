@@ -7,7 +7,7 @@ export default function Main() {
   const router = useRouter();
 
   useEffect(() => {
-    router.push("/conversores/main");
+    router.push("/atividades");
   }, [router]);
 
   return null;

@@ -5,9 +5,9 @@ import Link from "next/link";
 export default function Main() {
   return (
     <div className="main-container">
-      <h1>Bem-vindo ao Trabalho de Conversores</h1>
+      <h1>Conversores</h1>
       <p>
-        Este projeto contém conversores de valores para diferentes unidades e uma página sobre mim. Escolha uma das opções abaixo:
+        Escolha uma das opções abaixo:
       </p>
       <nav className="main-links">
         <Link href="/conversores/dol">Conversor de Reais para Dólares</Link>

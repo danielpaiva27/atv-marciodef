@@ -13,15 +13,17 @@ export default function About() {
         </div>
         <h1>Sobre Mim</h1>
         <p>
-          Meu nome é <span className="highlight">Daniel Luna Paiva</span>, sou estudante de desenvolvimento web e este é meu trabalho de faculdade. Este projeto foi desenvolvido utilizando{" "}
-          <span className="highlight">Next.js</span> e{" "}
-          <span className="highlight">React</span>, com o objetivo de criar conversores simples e funcionais.
+          Meu nome é <span className="highlight">Daniel Luna Paiva</span>, sou estudante de desenvolvimento web e esse é . Aqui estarão todos meus trabalhos de front-end da faculdade{" "}
+          
         </p>
         <p>
-          Confira mais sobre o projeto no meu{" "}
+          Confira mais sobre meus projetos no meu{" "}
           <a href="https://github.com/danielpaiva27" target="_blank" rel="noopener noreferrer">
             GitHub
-          </a>.
+          </a> e no meu <a href="https://www.linkedin.com/in/daniel-luna27" target="_blank" rel="noopener noreferrer">
+          linkedin
+          </a>
+          
         </p>
       </div>
     </div>
