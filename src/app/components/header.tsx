@@ -13,7 +13,7 @@ export default function Header() {
   return (
     <header className="header-container">
       <div className="header-content">
-        <div className="header-logo">Trabalho de Atividades</div>
+        <div className="header-logo">Atividades</div>
         <div className="menu-toggle" onClick={toggleMenu}>
           <span></span>
           <span></span>
