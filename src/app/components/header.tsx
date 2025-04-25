@@ -11,7 +11,7 @@ export default function Header() {
           <Link href="../atividades">Início</Link>
           <Link href="../sobre">Sobre Mim</Link>
           <Link href="../conversores/main">Conversores</Link>
-          <Link href="/atividade2">Em breve</Link>
+          <Link>Em breve</Link>
         </nav>
       </div>
     </header>

@@ -13,7 +13,7 @@ export default function Main() {
         <Link href="/conversores/dol">Conversor de Reais para Dólares</Link>
         <Link href="/conversores/comp">Conversor de Comprimento</Link>
         <Link href="/conversores/temp">Conversor de Temperatura</Link>
-        <Link href="/sobre">Sobre Mim</Link>
+        <Link href="../sobre">Sobre Mim</Link>
       </nav>
     </div>
   );

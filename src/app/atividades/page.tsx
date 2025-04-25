@@ -13,13 +13,13 @@ export default function Atividades() {
         <Link href="../conversores/main" className="atividade-link">
         14/04  -  Conversores 
         </Link>
-        <Link href="/atividade2" className="atividade-link">
+        <Link className="atividade-link">
           Em breve
         </Link>
-        <Link href="/atividade3" className="atividade-link">
+        <Link  className="atividade-link">
           Em breve
         </Link>
-        <Link href="/atividade4" className="atividade-link">
+        <Link className="atividade-link">
           Em breve
         </Link>
       </div>
